@@ -1,0 +1,73 @@
+﻿@using TelerikMvcApp1.ViewModels
+@model GridAViewModel
+
+
+<h3>@Model.DemoName</h3>
+
+@(Html.Kendo().Grid<AnimalViewModel>()
+    .Name("kgridA")
+    .HtmlAttributes(new { style = "height:80%;" })
+    .Columns(columns => {
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+        columns.Bound(p => p.Id).Hidden();
+        columns.Bound(p => p.AnimalType);
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Age);
+        columns.Bound(p => p.InZoo).Width(100).ClientTemplate(
+                                                    "# if (InZoo == true) { #" +
+                                                        "<span class='k-icon k-i-tick'></span>" +
+                                                    "# } #"
+                                                );
+    })
+    .ToolBar(toolbar => toolbar.Create().Text("Add New Animal"))
+    //.ToolBar(toolbar => toolbar.Save())
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+
+    //.Pageable()
+    .Sortable()
+    .Filterable()
+    //.Scrollable()
+
+    .DataSource(dataSource => dataSource
+            .Ajax()
+            .Events(events => events.Error("kgridA_error_handler"))
+            .Model(model => {
+                    model.Id(p => p.Id);
+                    model.Field(p => p.Age).DefaultValue(10);
+                }
+            )
+            
+            .Read(read => read.Action("GridBRead", "Grid"))
+            .Update(update => update.Action("GridBUpdate", "Grid"))
+            .Destroy(update => update.Action("GridBDestroy", "Grid"))
+            .Create(update => update.Action("GridBCreate", "Grid"))
+    )
+
+    
+    
+
+)
+
+<script>
+    function kgridA_error_handler(e) {
+        if (e.errors) {
+            var grid = $("#kgridA").data("kendoGrid");
+
+            //prevent the dataBinding from refreshing so the current edit remains
+            grid.one("dataBinding", function (x) {
+                x.preventDefault();
+            });
+
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+</script>

@@ -1,0 +1,57 @@
+﻿
+<style>
+#reportViewer1 {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 70px;
+    bottom: 5px;
+    overflow: hidden;
+}
+</style>
+
+
+@Styles.Render("~/Content/kendoReport/css")
+@Scripts.Render("~/bundles/kendoReport")
+
+
+@{
+    var myrep1 = new UriReportSource() { Uri = "ReportDemo.trdx" };
+    //myrep1.Parameters.Add("ProjectId", @Model.ProjectId);
+    //myrep1.Parameters.Add("ProjectTitle", @Model.ProjectName);
+    myrep1.Parameters.Add("ReportDate", DateTime.Now);      //Used to force report not to use a cached report but do a reload of data.
+}
+
+<div id="reportpositioner"></div>
+@(Html.TelerikReporting().ReportViewer()
+        .Id("reportViewer1")
+        .ServiceUrl("/api/reports/")
+        .TemplateUrl("../ReportViewer/templates/telerikReportViewerTemplate-9.0.15.324.html")
+        .ReportSource(myrep1)
+        .ViewMode(ViewModes.PRINT_PREVIEW)
+        .ScaleMode(ScaleModes.SPECIFIC)
+        .Scale(1.0)
+        .PersistSession(false)
+)
+
+
+<script>
+    $(document).ready(function () {
+        var rptop = $("#reportpositioner").offset().top;
+        $("#reportViewer1").offset({ top: rptop, left: 5 });
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+﻿@using TelerikMvcApp1.ViewModels;
+@model List<DemoSelectionViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    #DemoSelector{
+        margin: 40px 10px 10px 10px;
+        width: 300px;
+        float: left;
+    }
+    
+    .DemoItem{
+        padding: 10px 0;
+        margin: 1px 0;
+        text-align: center;
+        color: #ffffff;
+        background-color: #51A0ED;
+        font-size: 22px;
+    }
+    
+    .DemoItem a{
+        text-decoration: none;
+        color: #fff;
+    }
+
+</style>
+
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="DemoItem">
+        <a href="/#:Controller#/#:Action#">#:Name#</a>
+    </div>
+</script>
+
+
+
+
+
+
+
+
+
+
+@(Html.Kendo().ListView<DemoSelectionViewModel>(Model)
+    .Name("DemoSelector")
+    .TagName("div")
+    .ClientTemplateId("template")
+    .DataSource(dataSource => {
+        dataSource.Read(read => read.Action("DemoSelections", "Home"));
+    })
+)
+

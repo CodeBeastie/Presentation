@@ -1,0 +1,39 @@
+﻿@using TelerikMvcApp1.ViewModels
+@model GridAViewModel
+
+
+<h3>@Model.DemoName</h3>
+
+@(Html.Kendo().Grid<AnimalViewModel>()
+    .Name("kgridA")
+    .HtmlAttributes(new { style = "height:80%; width:400px" })
+    .Columns(columns => {
+        columns.Bound(p => p.Id).Hidden();
+        columns.Bound(p => p.AnimalType);
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.InZoo).Width(100).ClientTemplate(
+                                                    "# if (InZoo === true) { #" +
+                                                        "<span class='k-icon k-i-tick'></span>" +                                  
+                                                    "# } #"
+                                                );
+    })
+
+    //.ToolBar(toolBar => {toolBar.Excel();})
+    //.Excel(excel => excel.FileName("excelfilename.xlsx"))
+    //.Pageable()
+    //.Sortable()
+    //.Filterable()
+    //.Scrollable()
+    //.Groupable()
+    //.Reorderable(reorder => reorder.Columns(true))
+    //.Selectable(selectable => selectable.Mode(GridSelectionMode.Multiple))
+
+    .BindTo(Model.Animals)
+    .DataSource(dataSource => dataSource.Custom().Schema(schema => schema.Model(m=> m.Id(f=>f.Id)))
+        //.PageSize(10)
+    )
+
+    
+    
+
+)

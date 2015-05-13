@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report Width="16cm" Name="ReportDemo" xmlns="http://schemas.telerik.com/reporting/2012/3.8">
+  <DataSources>
+    <ObjectDataSource DataMember="ReadAnimals" Name="objectDataSource1">
+      <DataSource>
+        <ClrType FullName="TelerikMvcApp1.Data.Animals" Assembly="DemoData" />
+      </DataSource>
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <DetailSection Height="1.40000015139579cm" Name="detailSection1">
+      <Items>
+        <Table DataSourceName="objectDataSource1" Width="6cm" Height="1cm" Left="0cm" Top="0cm" KeepTogether="False" Name="table1" StyleName="Office.TableNormal">
+          <Body>
+            <Cells>
+              <TableCell RowIndex="0" ColumnIndex="0" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.AnimalType" Name="textBox4" StyleName="Office.TableBody" />
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="1" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.Name" Name="textBox5" StyleName="Office.TableBody" />
+                </ReportItem>
+              </TableCell>
+              <TableCell RowIndex="0" ColumnIndex="2" RowSpan="1" ColumnSpan="1">
+                <ReportItem>
+                  <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="= Fields.Age" Name="textBox6" StyleName="Office.TableBody" />
+                </ReportItem>
+              </TableCell>
+            </Cells>
+            <Columns>
+              <Column Width="1.99999988079071cm" />
+              <Column Width="1.99999988079071cm" />
+              <Column Width="1.99999988079071cm" />
+            </Columns>
+            <Rows>
+              <Row Height="0.5cm" />
+            </Rows>
+          </Body>
+          <Corner />
+          <RowGroups>
+            <TableGroup Name="Detail">
+              <Groupings>
+                <Grouping />
+              </Groupings>
+            </TableGroup>
+          </RowGroups>
+          <ColumnGroups>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Animal Type" Name="textBox1" StyleName="Office.TableHeader" />
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Name" Name="textBox2" StyleName="Office.TableHeader" />
+              </ReportItem>
+            </TableGroup>
+            <TableGroup>
+              <ReportItem>
+                <TextBox Width="2cm" Height="0.5cm" Left="0cm" Top="0cm" Value="Age" Name="textBox3" StyleName="Office.TableHeader" />
+              </ReportItem>
+            </TableGroup>
+          </ColumnGroups>
+        </Table>
+      </Items>
+    </DetailSection>
+    <PageHeaderSection Height="2.5cm" Name="pageHeaderSection1">
+      <Items>
+        <TextBox Width="15cm" Height="2cm" Left="0cm" Top="0cm" Value="ReportDemo" Name="ReportNameTextBox">
+          <Style>
+            <Font Name="Segoe UI" Size="14pt" Bold="True" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageHeaderSection>
+    <PageFooterSection Height="2.5cm" Name="pageFooterSection1">
+      <Items>
+        <TextBox Width="4cm" Height="1cm" Left="12cm" Top="1.5cm" Value="Page: {PageNumber}" Name="ReportPageNumberTextBox">
+          <Style>
+            <Font Name="Segoe UI" />
+          </Style>
+        </TextBox>
+      </Items>
+    </PageFooterSection>
+  </Items>
+  <StyleSheet>
+    <StyleRule>
+      <Style>
+        <Padding Left="2pt" Right="2pt" />
+      </Style>
+      <Selectors>
+        <TypeSelector Type="TextItemBase" />
+        <TypeSelector Type="HtmlTextBox" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style Color="20, 34, 77">
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font Name="Calibri" Size="9pt" />
+      </Style>
+      <Selectors>
+        <StyleSelector Type="Table" StyleName="Office.TableNormal" />
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style BackgroundColor="121, 167, 227" Color="20, 34, 77" VerticalAlign="Middle">
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font Name="Calibri" Size="10pt" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableHeader" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+    <StyleRule>
+      <Style>
+        <BorderStyle Default="Solid" />
+        <BorderColor Default="Black" />
+        <BorderWidth Default="1px" />
+        <Font Name="Calibri" Size="9pt" />
+      </Style>
+      <Selectors>
+        <DescendantSelector>
+          <Selectors>
+            <TypeSelector Type="Table" />
+            <StyleSelector Type="ReportItem" StyleName="Office.TableBody" />
+          </Selectors>
+        </DescendantSelector>
+      </Selectors>
+    </StyleRule>
+  </StyleSheet>
+  <PageSettings>
+    <PageSettings PaperKind="A4" Landscape="False" ColumnCount="1" ColumnSpacing="0cm">
+      <Margins>
+        <MarginsU Left="2cm" Right="2cm" Top="2cm" Bottom="2cm" />
+      </Margins>
+    </PageSettings>
+  </PageSettings>
+</Report>
