@@ -42,10 +42,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Kendo.Mvc, Version=2015.1.318.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+    <Reference Include="Kendo.Mvc, Version=2015.1.429.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET MVC Q1 2015\wrappers\aspnetmvc\Binaries\Mvc5\Kendo.Mvc.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>.\Kendo.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -106,12 +105,18 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Telerik.Reporting, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Telerik.Reporting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Reporting.Services.WebApi, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Telerik.Reporting.Services.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.ReportViewer.Mvc, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Telerik.ReportViewer.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease">
@@ -440,6 +445,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Kendo.Mvc.dll" />
     <Content Include="ReportViewer\js\telerikReportViewer-9.0.15.324.js" />
     <Content Include="ReportViewer\js\telerikReportViewer-9.0.15.324.min.js" />
     <Content Include="ReportViewer\styles\telerikReportViewer-9.0.15.324.css" />
@@ -602,6 +608,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Telerik.Reporting.dll" />
+    <Content Include="Telerik.Reporting.Services.WebApi.dll" />
+    <Content Include="Telerik.ReportViewer.Mvc.dll" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
