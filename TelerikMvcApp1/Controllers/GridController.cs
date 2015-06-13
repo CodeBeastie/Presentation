@@ -32,7 +32,7 @@ namespace TelerikMvcApp1.Controllers {
 
 
 		public ActionResult GridBRead([DataSourceRequest] DataSourceRequest request) {
-			var animals = Animals.Instance.ReadAnimals().Select(x => new AnimalViewModel { Id = x.Id, AnimalType = x.AnimalType, Name = x.Name, InZoo = x.InZoo, Age=x.Age });
+			IQueryable<AnimalViewModel> animals = Animals.Instance.ReadAnimals().Select(x => new AnimalViewModel { Id = x.Id, AnimalType = x.AnimalType, Name = x.Name, InZoo = x.InZoo, Age = x.Age });
 			return Json(animals.ToDataSourceResult(request));
 		}
 
@@ -49,7 +49,10 @@ namespace TelerikMvcApp1.Controllers {
 		public ActionResult GridBUpdate([DataSourceRequest] DataSourceRequest request, AnimalViewModel vm) {
 			if (vm != null && ModelState.IsValid) {
 				Animals.Instance.UpdateAnimal(new Animal { Id = vm.Id, Age = vm.Age, InZoo = vm.InZoo, AnimalType = vm.AnimalType, Name = vm.Name });
-				//ModelState.AddModelError("Name", "PROBLEM");
+				bool error = false;
+				if (error) {
+					ModelState.AddModelError("Name", "There has been a problem on the server!");
+				}
 			}
 			return Json(new[] { vm }.ToDataSourceResult(request, ModelState));
 		}

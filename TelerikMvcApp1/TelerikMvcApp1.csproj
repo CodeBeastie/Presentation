@@ -450,6 +450,7 @@
     <Content Include="ReportViewer\js\telerikReportViewer-9.0.15.324.min.js" />
     <Content Include="ReportViewer\styles\telerikReportViewer-9.0.15.324.css" />
     <Content Include="ReportViewer\templates\telerikReportViewerTemplate-9.0.15.324.html" />
+    <Content Include="Scripts\App\CBmessagebox.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\kendo\2015.1.318\fonts\DejaVu\DejaVuSans-Bold.ttf" />

@@ -13,6 +13,7 @@
         <script src="@Url.Content("~/Scripts/kendo/2015.1.318/kendo.all.min.js")"></script>
         <script src="@Url.Content("~/Scripts/kendo/2015.1.318/kendo.aspnetmvc.min.js")"></script>
         <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+        @Scripts.Render("~/bundles/app")
     </head>
     <body>
         <header>
@@ -35,5 +36,11 @@
             </section>
         </div>
 
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                CBmessagebox.Initialise();
+            });
+        </script>
     </body>
 </html>

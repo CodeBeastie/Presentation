@@ -35,8 +35,8 @@ namespace TelerikMvcApp1.Controllers {
 		[HttpPost]
 		public ActionResult DemoSelections([DataSourceRequest]DataSourceRequest request) {
 			List<DemoSelectionViewModel> vmlist = new List<DemoSelectionViewModel>() {
-				new DemoSelectionViewModel { Name="Splitter MVC", Action="SplitMVC", Controller="Splitter"},
 				new DemoSelectionViewModel { Name="Splitter JS", Action="SplitJS", Controller="Splitter"},
+				new DemoSelectionViewModel { Name="Splitter MVC", Action="SplitMVC", Controller="Splitter"},
 				new DemoSelectionViewModel { Name="Splitter Declarative", Action="SplitDataAttrib", Controller="Splitter"},
 				new DemoSelectionViewModel { Name="Grid Demo A", Action="GridA", Controller="Grid"},
 				new DemoSelectionViewModel { Name="Grid Demo B", Action="GridB", Controller="Grid"},

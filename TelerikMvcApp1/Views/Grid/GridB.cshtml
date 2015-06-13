@@ -20,8 +20,8 @@
                                                 );
     })
     .ToolBar(toolbar => toolbar.Create().Text("Add New Animal"))
-    //.ToolBar(toolbar => toolbar.Save())
-    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    //.ToolBar(toolbar => toolbar.Save())   //INCELL
+    .Editable(editable => editable.Mode(GridEditMode.InLine))   //INCELL - remove command column above
 
     //.Pageable()
     .Sortable()
@@ -66,7 +66,7 @@
                     });
                 }
             });
-            alert(message);
+            CBmessagebox.Warning(message);
         }
     }
 

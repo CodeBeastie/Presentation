@@ -745,5 +745,24 @@ tr.pager td {
         }
 }
 
-
+/* Popup window *************************************************/
+.CBkmsgbox {
+  margin: 0;
+  text-align: left;
+}
+.CBkmsgboxtitle {
+  padding: 3px 0 3px 0;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f58888;
+}
+.CBkmsgbutarea {
+  margin: 3px 3px 3px 10px;
+  width: 100px;
+  float: right;
+}
+.CBkmsgbg {
+  background: linear-gradient(to right, #e5e5e5 0, #d0d0d0 100%);
+}
 

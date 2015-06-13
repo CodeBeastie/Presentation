@@ -20,6 +20,10 @@ namespace TelerikMvcApp1 {
 					  "~/Content/bootstrap.css",
 					  "~/Content/site.css"));
 
+			bundles.Add(new ScriptBundle("~/bundles/app").Include(
+						"~/Scripts/App/CBmessagebox.js"
+						));
+
 			//Kendo Reports
 			bundles.Add(new ScriptBundle("~/bundles/kendoReport").Include("~/ReportViewer/js/telerikReportViewer-9.0.15.324.js"));
 			bundles.Add(new StyleBundle("~/Content/kendoReport/css").Include(
