@@ -40,6 +40,7 @@ namespace TelerikMvcApp1.Controllers {
 				new DemoSelectionViewModel { Name="Splitter Declarative", Action="SplitDataAttrib", Controller="Splitter"},
 				new DemoSelectionViewModel { Name="Grid Demo A", Action="GridA", Controller="Grid"},
 				new DemoSelectionViewModel { Name="Grid Demo B", Action="GridB", Controller="Grid"},
+				new DemoSelectionViewModel { Name="Grid Demo Dynamic Columns", Action="GridD1", Controller="GridDynamic"},
 				new DemoSelectionViewModel { Name="Show Report", Action="ShowReport", Controller="Home"},
 			};
 			return Json(vmlist.ToDataSourceResult(request));

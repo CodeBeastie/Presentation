@@ -1,0 +1,73 @@
+﻿@using TelerikMvcApp1.ViewModels
+@model GridDynamicViewModel
+
+
+<h3>@Model.DemoName</h3>
+
+@(Html.Kendo().Grid<AnimalViewModel>()
+    .Name("kgridA")
+    .HtmlAttributes(new { style = "height:80%;" })
+    .Columns(columns => {
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(200);
+        columns.Bound(p => p.Id).Hidden();
+
+        foreach (MyColumnSettings col in Model.GridColumns) {
+            columns.Bound(col.PropertyName).Title(col.Title).Width(col.Width);
+        }
+
+    })
+    .ToolBar(toolbar => toolbar.Create().Text("Add New Animal"))
+    .Editable(editable => editable.Mode(GridEditMode.InLine)) 
+
+    .Sortable()
+    .Filterable()
+
+    .DataSource(dataSource => dataSource
+            .Ajax()
+            .Events(events => events.Error("kgridA_error_handler"))
+            .Model(model => {
+                    model.Id(p => p.Id);
+                    model.Field(p => p.Age).DefaultValue(10);
+
+                    foreach (MyColumnSettings col in Model.GridColumns) {
+                        if (!col.Editable) {
+                           model.Field(col.PropertyName, col.ColType).Editable(false);
+                        }
+                    }
+                }
+            )
+            
+            .Read(read => read.Action("GridBRead", "GridDynamic"))
+                .Update(update => update.Action("GridBUpdate", "GridDynamic"))
+                .Destroy(update => update.Action("GridBDestroy", "GridDynamic"))
+                .Create(update => update.Action("GridBCreate", "GridDynamic"))
+    )
+
+    
+    
+
+)
+
+<script>
+    function kgridA_error_handler(e) {
+        if (e.errors) {
+            var grid = $("#kgridA").data("kendoGrid");
+
+            //prevent the dataBinding from refreshing so the current edit remains
+            grid.one("dataBinding", function (x) {
+                x.preventDefault();
+            });
+
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            CBmessagebox.Warning(message);
+        }
+    }
+
+</script>
